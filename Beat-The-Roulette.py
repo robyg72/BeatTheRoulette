@@ -19,7 +19,10 @@ class Roulette:
         self.lastOutcome = None
         self.mean = 0
         self.numbers = []  # store each Outcome drawn
-        self.frequency = {"0": 0, "1": 0, "2": 0, "3": 0, "12":0, "23": 0, "34": 0}  # store frequency outcomes for each figure
+        self.frequency = {"0": 0,
+                          "1": 0, "2": 0, "3": 0, "4": 0, "5": 0, "6": 0, "7": 0, "8": 0, "9": 0, "10": 0, "11": 0,
+                          "12":0, "13":0, "14":0, "15":0, "16": 0,
+                          "34": 0, "35": 0, "36": 0}  # store frequency outcomes for each figure
 
     # Calculates the mean value after each extraction
     def _mean(self):
@@ -36,7 +39,10 @@ class Roulette:
         outcome = Outcome(number)
         self.lastOutcome = outcome
         self.numbers.append(outcome)
-        self.frequency[str(outcome.figure)] = self.frequency[str(outcome.figure)] + 1
+        if str(outcome.figure) in self.frequency:
+            self.frequency[str(outcome.figure)] = self.frequency[str(outcome.figure)] + 1
+        else:
+            print "number not found"
         print self._mean()
 
 
