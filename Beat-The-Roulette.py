@@ -1,6 +1,6 @@
 class Outcome:
     def __init__(self, figure):
-        self.figure = figure
+        self.figure = int(figure)
         if self.figure % 2 == 0:
             self.is_even = True
         else:
